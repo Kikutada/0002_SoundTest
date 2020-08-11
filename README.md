@@ -9,7 +9,7 @@ For example, if you want to play back a specified sound:
 play(.EatDot)
 ```
 
-Also, if you want to play BGM which repeats the specified sound file foever:
+Also, if you want to play BGM which repeats a specified sound file foever:
 
 ```swift
 playBGM(.BgmPower)
