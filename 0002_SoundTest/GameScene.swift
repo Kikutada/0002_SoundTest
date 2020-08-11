@@ -69,9 +69,8 @@ class GameScene: SKScene {
         // Initialize Sound Manager
         // ===============================
 
-        // Create and reset sound object.
+        // Create sound object.
         sound = CgSoundManager(view: self)
-        sound.reset()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

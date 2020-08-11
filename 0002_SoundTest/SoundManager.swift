@@ -53,7 +53,7 @@ class CgSoundManager {
     private var view: SKScene?
     private var actions: [SKAction] = []
     private var table_playingTime: [Int] = []
-    private var soundEnabled = false
+    private var soundEnabled = true
     
     // Adjustment time for processing to play sound.
     private let triggerThresholdTime: Int = 16 //ms
@@ -72,6 +72,7 @@ class CgSoundManager {
         for t in table_urls {
             appendSoundResource(resourceName: t[0].resourceName, typeName: t[0].typeName)
         }
+        reset()
     }
     
     /// Append sound resources to SpriteKit.
@@ -110,7 +111,7 @@ class CgSoundManager {
     /// Reset sound manager.
     func reset() {
         soundEnabled = true
-        bgmEnabled = true
+        bgmEnabled = false
         bgmNumber = -1
         bgmTime = 0
 
@@ -153,7 +154,7 @@ class CgSoundManager {
     /// - Parameter number: Kind of sound items to play back.
     func playBGM(_ number: EnKindOfSound) {
         guard soundEnabled && number.rawValue < actions.count else { return }
-        guard bgmEnabled && number.rawValue != bgmNumber else { return }
+        guard !bgmEnabled && number.rawValue != bgmNumber else { return }
 
         bgmNumber = number.rawValue
         if bgmTime <= triggerThresholdTime {
