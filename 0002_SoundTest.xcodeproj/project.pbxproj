@@ -31,6 +31,8 @@
 		D8B7EBA524E1A20F00DCD517 /* 16_pacman_beginning_4224ms.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8B7EB9624E1A20F00DCD517 /* 16_pacman_beginning_4224ms.wav */; };
 		D8B7EBA624E1A20F00DCD517 /* 16_pacman_extrapac_1952ms.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8B7EB9724E1A20F00DCD517 /* 16_pacman_extrapac_1952ms.wav */; };
 		D8B7EBA724E1A20F00DCD517 /* 16_BGM_spurt4_512ms.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8B7EB9824E1A20F00DCD517 /* 16_BGM_spurt4_512ms.wav */; };
+		D8F1AD1B24E2B3EE00F0D9F0 /* Wave01.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F1AD1A24E2B3EE00F0D9F0 /* Wave01.png */; };
+		D8F1AD1D24E2B45E00F0D9F0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D8F1AD1C24E2B45E00F0D9F0 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		D8B7EB9624E1A20F00DCD517 /* 16_pacman_beginning_4224ms.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 16_pacman_beginning_4224ms.wav; sourceTree = "<group>"; };
 		D8B7EB9724E1A20F00DCD517 /* 16_pacman_extrapac_1952ms.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 16_pacman_extrapac_1952ms.wav; sourceTree = "<group>"; };
 		D8B7EB9824E1A20F00DCD517 /* 16_BGM_spurt4_512ms.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 16_BGM_spurt4_512ms.wav; sourceTree = "<group>"; };
+		D8F1AD1A24E2B3EE00F0D9F0 /* Wave01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wave01.png; sourceTree = "<group>"; };
+		D8F1AD1C24E2B45E00F0D9F0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,8 @@
 		D8B7EB6124E19F4000DCD517 = {
 			isa = PBXGroup;
 			children = (
+				D8F1AD1C24E2B45E00F0D9F0 /* README.md */,
+				D8F1AD1924E2B3DD00F0D9F0 /* images */,
 				D8B7EB6C24E19F4000DCD517 /* 0002_SoundTest */,
 				D8B7EB6B24E19F4000DCD517 /* Products */,
 			);
@@ -127,6 +133,14 @@
 				D8B7EB8C24E1A20E00DCD517 /* 16_pacman_intermission_5200ms.wav */,
 			);
 			path = Sound;
+			sourceTree = "<group>";
+		};
+		D8F1AD1924E2B3DD00F0D9F0 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D8F1AD1A24E2B3EE00F0D9F0 /* Wave01.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,7 +202,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8B7EBA724E1A20F00DCD517 /* 16_BGM_spurt4_512ms.wav in Resources */,
+				D8F1AD1B24E2B3EE00F0D9F0 /* Wave01.png in Resources */,
 				D8B7EBA124E1A20F00DCD517 /* 16_BGM_spurt1_352ms.wav in Resources */,
+				D8F1AD1D24E2B45E00F0D9F0 /* README.md in Resources */,
 				D8B7EBA024E1A20F00DCD517 /* 16_pacman_miss_1536ms.wav in Resources */,
 				D8B7EB9A24E1A20F00DCD517 /* 16_pacman_eatdot_256ms.wav in Resources */,
 				D8B7EBA524E1A20F00DCD517 /* 16_pacman_beginning_4224ms.wav in Resources */,

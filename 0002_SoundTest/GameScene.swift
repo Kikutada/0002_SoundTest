@@ -121,6 +121,6 @@ class GameScene: SKScene {
         }
 
         // Update sound manager.
-        sound.update(interval: 16)
+        sound.update(interval: 16 /* ms */)
     }
 }

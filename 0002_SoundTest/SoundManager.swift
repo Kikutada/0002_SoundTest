@@ -107,12 +107,6 @@ class CgSoundManager {
         }
     }
     
-    /// Enable or disable to output sound.
-    /// - Parameter enabled: True enables to output sound.  False disables.
-    func enableOutput(_ enabled: Bool) {
-        soundEnabled = enabled
-    }
-
     /// Reset sound manager.
     func reset() {
         soundEnabled = true
@@ -124,7 +118,35 @@ class CgSoundManager {
             table_playingTime[i] = 0
         }
     }
+
+    /// Enable or disable to output sound.
+    /// - Parameter enabled: True enables to output sound.  False disables.
+    func enableOutput(_ enabled: Bool) {
+        soundEnabled = enabled
+    }
+
+    /// Play back specified sound.
+    /// If the specified item is playing back, it will not be played back.
+    /// - Parameter number: Kind of sound items to play back.
+    func play(_ number: EnKindOfSound) {
+        guard soundEnabled && number.rawValue < actions.count else { return }
+
+        let _number = number.rawValue
+        if table_playingTime[_number] <= triggerThresholdTime {
+            let table = table_urls[_number]
+            table_playingTime[_number] = table[0].interval
+            view?.run(actions[_number])
+        }
+    }
     
+    /// Stop the specified sound.
+    /// - Parameter number: Kind of sound items to play back.
+    func stop(_ number: EnKindOfSound) {
+        guard number.rawValue < actions.count else { return }
+
+        table_playingTime[number.rawValue] = 0
+    }
+
     /// Play back BGM.
     /// This method plays a specified sound item repeatedly.
     /// If the specified item is playing back, it will not be played back.
@@ -148,26 +170,5 @@ class CgSoundManager {
         bgmTime = 0
     }
     
-    /// Play back specified sound.
-    /// If the specified item is playing back, it will not be played back.
-    /// - Parameter number: Kind of sound items to play back.
-    func play(_ number: EnKindOfSound) {
-        guard soundEnabled && number.rawValue < actions.count else { return }
-
-        let _number = number.rawValue
-        if table_playingTime[_number] <= triggerThresholdTime {
-            let table = table_urls[_number]
-            table_playingTime[_number] = table[0].interval
-            view?.run(actions[_number])
-        }
-    }
-    
-    /// Stop the specified sound.
-    /// - Parameter number: Kind of sound items to play back.
-    func stop(_ number: EnKindOfSound) {
-        guard number.rawValue < actions.count else { return }
-
-        table_playingTime[number.rawValue] = 0
-    }
 }
 
