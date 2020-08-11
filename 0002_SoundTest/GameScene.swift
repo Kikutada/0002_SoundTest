@@ -69,6 +69,7 @@ class GameScene: SKScene {
         // Initialize Sound Manager
         // ===============================
 
+        // Create and reset sound object.
         sound = CgSoundManager(view: self)
         sound.reset()
     }
