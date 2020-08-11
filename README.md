@@ -3,10 +3,10 @@
 "Sound Manager" makes it easy to play back sounds. 
 It uses the framework of Spritekit. "SoundManager.swift" file provides below features.
 
-For example, if you want to play back a specified sound:
+For example, if you want to play back a specified sound effect:
 
 ```swift
-play(.EatDot)
+playSE(.EatDot)
 ```
 
 Also, if you want to play BGM which repeats a specified sound file foever:
@@ -36,7 +36,7 @@ let sound = CgSoundManager(view: self)
 sound.reset()
         
 // Play sound
-sound.play(.EatDot)
+sound.playSE(.EatDot)
 
 ```
 
@@ -58,8 +58,8 @@ class GameScene: SKScene {
 # APIs
 
 * reset()
-* play(_ number: EnKindOfSound)
-* stop(_ number: EnKindOfSound)
+* playSE(_ number: EnKindOfSound)
+* stopSE(_ number: EnKindOfSound)
 * playBGM(_ number: EnKindOfSound)
 * stopBGM()
 * enableOutput(_ enabled: Bool)

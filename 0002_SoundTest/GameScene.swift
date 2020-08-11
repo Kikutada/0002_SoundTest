@@ -80,7 +80,7 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        sound.play(.EatDot)
+        sound.playSE(.EatDot)
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {

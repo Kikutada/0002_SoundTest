@@ -128,7 +128,7 @@ class CgSoundManager {
     /// Play back specified sound.
     /// If the specified item is playing back, it will not be played back.
     /// - Parameter number: Kind of sound items to play back.
-    func play(_ number: EnKindOfSound) {
+    func playSE(_ number: EnKindOfSound) {
         guard soundEnabled && number.rawValue < actions.count else { return }
 
         let _number = number.rawValue
@@ -141,7 +141,7 @@ class CgSoundManager {
     
     /// Stop the specified sound.
     /// - Parameter number: Kind of sound items to play back.
-    func stop(_ number: EnKindOfSound) {
+    func stopSE(_ number: EnKindOfSound) {
         guard number.rawValue < actions.count else { return }
 
         table_playingTime[number.rawValue] = 0
