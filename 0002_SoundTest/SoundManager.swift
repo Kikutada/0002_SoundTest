@@ -154,7 +154,7 @@ class CgSoundManager {
     /// - Parameter number: Kind of sound items to play back.
     func playBGM(_ number: EnKindOfSound) {
         guard soundEnabled && number.rawValue < actions.count else { return }
-        guard !bgmEnabled && number.rawValue != bgmNumber else { return }
+        guard !bgmEnabled || number.rawValue != bgmNumber else { return }
 
         bgmNumber = number.rawValue
         if bgmTime <= triggerThresholdTime {
