@@ -32,9 +32,6 @@ To play back sound, create CgSpriteManager class and call the APIs.
 // Create a sound manager object.
 let sound = CgSoundManager(view: self)
 
-// Reset settings
-sound.reset()
-        
 // Play sound
 sound.playSE(.EatDot)
 
@@ -46,7 +43,7 @@ To implement BGM, "update" method must be called regularly. For example, if you 
 class GameScene: SKScene {
 
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+    // Called before each frame is rendered.
 
         // Update sound manager.
         sound.update(interval: 16 /* ms */)

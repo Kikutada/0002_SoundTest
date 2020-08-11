@@ -12,7 +12,7 @@ import SpriteKit
 /// Sound management class plays sound with SpriteKit.
 class CgSoundManager {
 
-    // Kind of sound items to play back
+    // Kind of sound items to play back.
     enum EnKindOfSound: Int {
         case EatDot = 0
         case EatFruit
@@ -31,7 +31,7 @@ class CgSoundManager {
         case Intermission
     }
 
-    // List of sound files to load
+    // List of sound files to load.
     private let table_urls: [[(resourceName: String, typeName: String, interval: Int)]] = [
         [ ("16_pacman_eatdot_256ms", "wav", 256) ],
         [ ("16_pacman_eatfruit_438ms", "wav", 438) ],
@@ -62,7 +62,7 @@ class CgSoundManager {
     private var bgmNumber: Int = -1
     private var bgmTime: Int = 0
     
-    /// Create and initialize an sound manager object.
+    /// Create and initialize a sound manager object.
     /// - Parameters:
     ///   - view: SKScene object that organizes all of the active SpriteKit content.
     init(view: SKScene) {
@@ -126,7 +126,7 @@ class CgSoundManager {
         soundEnabled = enabled
     }
 
-    /// Play back specified sound.
+    /// Play back a specified sound.
     /// If the specified item is playing back, it will not be played back.
     /// - Parameter number: Kind of sound items to play back.
     func playSE(_ number: EnKindOfSound) {

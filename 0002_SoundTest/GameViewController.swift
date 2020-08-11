@@ -21,13 +21,13 @@ class GameViewController: UIViewController {
            let size = CGSize(width: 28*8, height: 36*8)
            scene = GameScene(size: size)
            
-           // Set background color to black
+           // Set background color to black.
            scene.backgroundColor = UIColor.black
 
-           // Set the scale mode to scale to fit the window
+           // Set the scale mode to scale to fit the window.
            scene.scaleMode = .aspectFit
            
-           // Present the scene
+           // Present the scene.
            view.presentScene(scene)
            
            view.ignoresSiblingOrder = true

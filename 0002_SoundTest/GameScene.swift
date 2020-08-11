@@ -94,7 +94,7 @@ class GameScene: SKScene {
     private var bgmTime: Int = 0
 
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        // Called before each frame is rendered.
 
         // Move and animate a Ghost.
         if x == 0 {
