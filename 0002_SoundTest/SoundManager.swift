@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  Soundmanagher.swift
 //  0002_SoundTest
 //
 //  Created by Kikutada on 2020/08/11.
@@ -9,29 +9,31 @@
 import Foundation
 import SpriteKit
 
-enum EnKindOfSound: Int {
-    case EatDot = 0
-    case EatFruit
-    case EatGhost
-    case Disappear
-    case ExtraPacman
-    case Credit
-    case BgmNormal
-    case BgmSpurt1
-    case BgmSpurt2
-    case BgmSpurt3
-    case BgmSpurt4
-    case BgmPower
-    case BgmReturn
-    case Beginning
-    case Intermission
-}
+/// Sound management class plays sound with SpriteKit.
+class CgSoundManager {
 
+    // Kind of sound items to play back
+    enum EnKindOfSound: Int {
+        case EatDot = 0
+        case EatFruit
+        case EatGhost
+        case Miss
+        case ExtraPacman
+        case Credit
+        case BgmNormal
+        case BgmSpurt1
+        case BgmSpurt2
+        case BgmSpurt3
+        case BgmSpurt4
+        case BgmPower
+        case BgmReturn
+        case Beginning
+        case Intermission
+    }
 
-class CgSoundManager /*: CbContainer*/ {
-
-    let table_urls: [[(resourceName: String, typeName: String, interval: Int)]] = [
-        [ ("16_pacman_eatDot_256ms", "wav", 256) ],
+    // List of sound files to load
+    private let table_urls: [[(resourceName: String, typeName: String, interval: Int)]] = [
+        [ ("16_pacman_eatdot_256ms", "wav", 256) ],
         [ ("16_pacman_eatfruit_438ms", "wav", 438) ],
         [ ("16_pacman_eatghost_544ms", "wav", 544) ],
         [ ("16_pacman_miss_1536ms", "wav", 1536) ],
@@ -51,27 +53,70 @@ class CgSoundManager /*: CbContainer*/ {
     private var view: SKScene?
     private var actions: [SKAction] = []
     private var table_playingTime: [Int] = []
-    private var soundEnabled = true
+    private var soundEnabled = false
     
-    private let triggerThresholdTime: Int = 32
+    // Adjustment time for processing to play sound.
+    private let triggerThresholdTime: Int = 16 //ms
 
     private var bgmEnabled: Bool = false
     private var bgmNumber: Int = -1
     private var bgmTime: Int = 0
-/*
-    init(binding object: CbObject, view: SKScene) {
-        super.init(binding: object)
+    
+    /// Create and initialize an sound manager object.
+    /// - Parameters:
+    ///   - view: SKScene object that organizes all of the active SpriteKit content.
+    init(view: SKScene) {
         self.view = view
         table_playingTime = Array<Int>(repeating: 0, count: table_urls.count)
 
         for t in table_urls {
-            appendResource(resourceName: t[0].resourceName, typeName: t[0].typeName)
+            appendSoundResource(resourceName: t[0].resourceName, typeName: t[0].typeName)
         }
     }
-*/
+    
+    /// Append sound resources to SpriteKit.
+    /// - Parameters:
+    ///   - resourceName: File name for sound resource.
+    ///   - typeName: Type name for sound resource.
+    private func appendSoundResource(resourceName: String, typeName: String) {
+        let fileName = resourceName+"."+typeName
+        let sound: SKAction = SKAction.playSoundFileNamed(fileName, waitForCompletion: false)
+        actions.append(sound)
+    }
+    
+    /// Update sound manager.
+    /// - Parameter interval: Interval time to update.
+    func update(interval: Int) {
+        guard bgmEnabled else { return }
+
+        // Update time to play back BGM.
+        if  bgmTime > 0 {
+            bgmTime -= interval
+            if bgmTime <= 0 {
+                let table = table_urls[bgmNumber]
+                bgmTime = table[0].interval
+                view?.run(actions[bgmNumber])
+            }
+        }
+
+        // Update time to play back sound.
+        for i in 0 ..< table_urls.count {
+            if table_playingTime[i] > 0 {
+                table_playingTime[i] -= interval
+            }
+        }
+    }
+    
+    /// Enable or disable to output sound.
+    /// - Parameter enabled: True enables to output sound.  False disables.
+    func enableOutput(_ enabled: Bool) {
+        soundEnabled = enabled
+    }
+
+    /// Reset sound manager.
     func reset() {
         soundEnabled = true
-        bgmEnabled = false
+        bgmEnabled = true
         bgmNumber = -1
         bgmTime = 0
 
@@ -79,37 +124,15 @@ class CgSoundManager /*: CbContainer*/ {
             table_playingTime[i] = 0
         }
     }
-/*
-    override func handleEvent(sender: CbObject, message: EnMessage, parameter values: [Int]) {
-        if message == .SystemClock {
-            let interval = values[0]
-            if bgmEnabled {
-                if bgmTime > 0 {
-                    bgmTime -= interval
-                    if bgmTime <= 0 {
-                        let table = table_urls[bgmNumber]
-                        bgmTime = table[0].interval
-                        view?.run(actions[bgmNumber])
-                    }
-                }
-            }
-            for i in 0 ..< table_urls.count {
-                if table_playingTime[i] > 0 {
-                    table_playingTime[i] -= interval
-                }
-            }
-        }
-    }
-*/
-    func appendResource(resourceName: String, typeName: String) {
-        let fileName = resourceName+"."+typeName
-        let sound: SKAction = SKAction.playSoundFileNamed(fileName, waitForCompletion: false)
-        actions.append(sound)
-    }
-
+    
+    /// Play back BGM.
+    /// This method plays a specified sound item repeatedly.
+    /// If the specified item is playing back, it will not be played back.
+    /// - Parameter number: Kind of sound items to play back.
     func playBGM(_ number: EnKindOfSound) {
-        guard number.rawValue < actions.count && soundEnabled else { return }
-        if bgmEnabled && number.rawValue == bgmNumber { return }
+        guard soundEnabled && number.rawValue < actions.count else { return }
+        guard bgmEnabled && number.rawValue != bgmNumber else { return }
+
         bgmNumber = number.rawValue
         if bgmTime <= triggerThresholdTime {
             bgmEnabled = true
@@ -118,32 +141,33 @@ class CgSoundManager /*: CbContainer*/ {
             view?.run(actions[bgmNumber])
         }
     }
-
+    
+    /// Stop BGM.
     func stopBGM() {
         bgmEnabled = false
         bgmTime = 0
     }
-
+    
+    /// Play back specified sound.
+    /// If the specified item is playing back, it will not be played back.
+    /// - Parameter number: Kind of sound items to play back.
     func play(_ number: EnKindOfSound) {
-        guard number.rawValue < actions.count && soundEnabled else { return }
+        guard soundEnabled && number.rawValue < actions.count else { return }
 
         let _number = number.rawValue
         if table_playingTime[_number] <= triggerThresholdTime {
-            view?.run(actions[_number])
             let table = table_urls[_number]
             table_playingTime[_number] = table[0].interval
+            view?.run(actions[_number])
         }
     }
-
+    
+    /// Stop the specified sound.
+    /// - Parameter number: Kind of sound items to play back.
     func stop(_ number: EnKindOfSound) {
         guard number.rawValue < actions.count else { return }
 
         table_playingTime[number.rawValue] = 0
     }
-    
-    func enableOutput(_ enabled: Bool) {
-        soundEnabled = enabled
-    }
-
 }
 

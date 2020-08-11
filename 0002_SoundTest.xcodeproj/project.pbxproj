@@ -17,7 +17,7 @@
 		D8B7EB8624E19FF500DCD517 /* SpritekitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7EB8524E19FF500DCD517 /* SpritekitManager.swift */; };
 		D8B7EB8824E1A0A700DCD517 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B7EB8724E1A0A700DCD517 /* SoundManager.swift */; };
 		D8B7EB9924E1A20F00DCD517 /* 16_BGM_spurt2_320ms.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8B7EB8A24E1A20E00DCD517 /* 16_BGM_spurt2_320ms.wav */; };
-		D8B7EB9A24E1A20F00DCD517 /* 16_pacman_eatDot_256ms.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8B7EB8B24E1A20E00DCD517 /* 16_pacman_eatDot_256ms.wav */; };
+		D8B7EB9A24E1A20F00DCD517 /* 16_pacman_eatdot_256ms.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8B7EB8B24E1A20E00DCD517 /* 16_pacman_eatdot_256ms.wav */; };
 		D8B7EB9B24E1A20F00DCD517 /* 16_pacman_intermission_5200ms.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8B7EB8C24E1A20E00DCD517 /* 16_pacman_intermission_5200ms.wav */; };
 		D8B7EB9C24E1A20F00DCD517 /* 16_BGM_spurt3_592ms.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8B7EB8D24E1A20E00DCD517 /* 16_BGM_spurt3_592ms.wav */; };
 		D8B7EB9D24E1A20F00DCD517 /* 16_BGM_return_528ms.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8B7EB8E24E1A20E00DCD517 /* 16_BGM_return_528ms.wav */; };
@@ -46,7 +46,7 @@
 		D8B7EB8524E19FF500DCD517 /* SpritekitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpritekitManager.swift; sourceTree = "<group>"; };
 		D8B7EB8724E1A0A700DCD517 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		D8B7EB8A24E1A20E00DCD517 /* 16_BGM_spurt2_320ms.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 16_BGM_spurt2_320ms.wav; sourceTree = "<group>"; };
-		D8B7EB8B24E1A20E00DCD517 /* 16_pacman_eatDot_256ms.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 16_pacman_eatDot_256ms.wav; sourceTree = "<group>"; };
+		D8B7EB8B24E1A20E00DCD517 /* 16_pacman_eatdot_256ms.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 16_pacman_eatdot_256ms.wav; sourceTree = "<group>"; };
 		D8B7EB8C24E1A20E00DCD517 /* 16_pacman_intermission_5200ms.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 16_pacman_intermission_5200ms.wav; sourceTree = "<group>"; };
 		D8B7EB8D24E1A20E00DCD517 /* 16_BGM_spurt3_592ms.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 16_BGM_spurt3_592ms.wav; sourceTree = "<group>"; };
 		D8B7EB8E24E1A20E00DCD517 /* 16_BGM_return_528ms.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 16_BGM_return_528ms.wav; sourceTree = "<group>"; };
@@ -110,21 +110,21 @@
 		D8B7EB8924E1A0EC00DCD517 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				D8B7EB8B24E1A20E00DCD517 /* 16_pacman_eatdot_256ms.wav */,
+				D8B7EB9324E1A20E00DCD517 /* 16_pacman_eatfruit_438ms.wav */,
+				D8B7EB9524E1A20F00DCD517 /* 16_pacman_eatghost_544ms.wav */,
+				D8B7EB9124E1A20E00DCD517 /* 16_pacman_miss_1536ms.wav */,
+				D8B7EB9724E1A20F00DCD517 /* 16_pacman_extrapac_1952ms.wav */,
+				D8B7EB8F24E1A20E00DCD517 /* 16_credit_224ms.wav */,
 				D8B7EB9024E1A20E00DCD517 /* 16_BGM_normal_400ms.wav */,
-				D8B7EB9424E1A20E00DCD517 /* 16_BGM_power_400ms.wav */,
-				D8B7EB8E24E1A20E00DCD517 /* 16_BGM_return_528ms.wav */,
 				D8B7EB9224E1A20E00DCD517 /* 16_BGM_spurt1_352ms.wav */,
 				D8B7EB8A24E1A20E00DCD517 /* 16_BGM_spurt2_320ms.wav */,
 				D8B7EB8D24E1A20E00DCD517 /* 16_BGM_spurt3_592ms.wav */,
 				D8B7EB9824E1A20F00DCD517 /* 16_BGM_spurt4_512ms.wav */,
-				D8B7EB8F24E1A20E00DCD517 /* 16_credit_224ms.wav */,
+				D8B7EB9424E1A20E00DCD517 /* 16_BGM_power_400ms.wav */,
+				D8B7EB8E24E1A20E00DCD517 /* 16_BGM_return_528ms.wav */,
 				D8B7EB9624E1A20F00DCD517 /* 16_pacman_beginning_4224ms.wav */,
-				D8B7EB8B24E1A20E00DCD517 /* 16_pacman_eatDot_256ms.wav */,
-				D8B7EB9324E1A20E00DCD517 /* 16_pacman_eatfruit_438ms.wav */,
-				D8B7EB9524E1A20F00DCD517 /* 16_pacman_eatghost_544ms.wav */,
-				D8B7EB9724E1A20F00DCD517 /* 16_pacman_extrapac_1952ms.wav */,
 				D8B7EB8C24E1A20E00DCD517 /* 16_pacman_intermission_5200ms.wav */,
-				D8B7EB9124E1A20E00DCD517 /* 16_pacman_miss_1536ms.wav */,
 			);
 			path = Sound;
 			sourceTree = "<group>";
@@ -190,7 +190,7 @@
 				D8B7EBA724E1A20F00DCD517 /* 16_BGM_spurt4_512ms.wav in Resources */,
 				D8B7EBA124E1A20F00DCD517 /* 16_BGM_spurt1_352ms.wav in Resources */,
 				D8B7EBA024E1A20F00DCD517 /* 16_pacman_miss_1536ms.wav in Resources */,
-				D8B7EB9A24E1A20F00DCD517 /* 16_pacman_eatDot_256ms.wav in Resources */,
+				D8B7EB9A24E1A20F00DCD517 /* 16_pacman_eatdot_256ms.wav in Resources */,
 				D8B7EBA524E1A20F00DCD517 /* 16_pacman_beginning_4224ms.wav in Resources */,
 				D8B7EB7924E19F4000DCD517 /* Main.storyboard in Resources */,
 				D8B7EB9F24E1A20F00DCD517 /* 16_BGM_normal_400ms.wav in Resources */,

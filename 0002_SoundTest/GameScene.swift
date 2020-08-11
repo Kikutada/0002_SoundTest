@@ -22,13 +22,18 @@ class GameScene: SKScene {
     
     private var sprite: CgSpriteManager!
     private var background: CgCustomBackground!
+    private var sound: CgSoundManager!
     
     override func didMove(to view: SKView) {
+
+        // =========================================
+        // Initialize Sprite and Background Manager
+        // =========================================
 
         // Create sprite and background objects.
         sprite = CgSpriteManager(view: self, imageNamed: "spriteTest.png", width: 16, height: 16, maxNumber: 64)
         background = CgCustomBackground(view: self, imageNamed: "backgroundTest.png", width: 8, height: 8, maxNumber: 2)
-
+        
         // Draw cherries.
         sprite.draw(0, x: 8, y: 8, texture: 3)
         sprite.draw(1, x: 16*13+8, y: 8, texture: 3)
@@ -59,6 +64,13 @@ class GameScene: SKScene {
  
         // Put a #63 texture on #1 background.
         background.put(1, column: 14, row: 19, texture: 128)
+        
+        // ===============================
+        // Initialize Sound Manager
+        // ===============================
+
+        sound = CgSoundManager(view: self)
+        sound.reset()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -68,6 +80,7 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        sound.play(.EatDot)
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -75,6 +88,10 @@ class GameScene: SKScene {
     
     private var x: CGFloat = 0
     private var dx: CGFloat = 0
+    
+    private let bgm: [CgSoundManager.EnKindOfSound] = [.BgmNormal, .BgmSpurt1, .BgmSpurt2, .BgmPower, .BgmReturn]
+    private var bgmIndex: Int = 0
+    private var bgmTime: Int = 0
 
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
@@ -90,5 +107,20 @@ class GameScene: SKScene {
         
         x += dx
         sprite.setPosition(5, x: x, y: 16*6)
+        
+        // Play back BGM.
+        if bgmTime == 0 {
+            bgmTime = 16*60*5  // 5s
+            sound.playBGM(bgm[bgmIndex])
+            bgmIndex += 1
+            if bgmIndex >= bgm.count {
+                bgmIndex = 0
+            }
+        } else {
+            bgmTime -= 16
+        }
+
+        // Update sound manager.
+        sound.update(interval: 16)
     }
 }
