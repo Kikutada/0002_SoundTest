@@ -33,6 +33,7 @@
 		D8B7EBA724E1A20F00DCD517 /* 16_BGM_spurt4_512ms.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8B7EB9824E1A20F00DCD517 /* 16_BGM_spurt4_512ms.wav */; };
 		D8F1AD1B24E2B3EE00F0D9F0 /* Wave01.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F1AD1A24E2B3EE00F0D9F0 /* Wave01.png */; };
 		D8F1AD1D24E2B45E00F0D9F0 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D8F1AD1C24E2B45E00F0D9F0 /* README.md */; };
+		D8F1AD1F24E2CDDA00F0D9F0 /* 0002_soundTest.png in Resources */ = {isa = PBXBuildFile; fileRef = D8F1AD1E24E2CDDA00F0D9F0 /* 0002_soundTest.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		D8B7EB9824E1A20F00DCD517 /* 16_BGM_spurt4_512ms.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 16_BGM_spurt4_512ms.wav; sourceTree = "<group>"; };
 		D8F1AD1A24E2B3EE00F0D9F0 /* Wave01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wave01.png; sourceTree = "<group>"; };
 		D8F1AD1C24E2B45E00F0D9F0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D8F1AD1E24E2CDDA00F0D9F0 /* 0002_soundTest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0002_soundTest.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		D8F1AD1924E2B3DD00F0D9F0 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D8F1AD1E24E2CDDA00F0D9F0 /* 0002_soundTest.png */,
 				D8F1AD1A24E2B3EE00F0D9F0 /* Wave01.png */,
 			);
 			path = images;
@@ -202,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8B7EBA724E1A20F00DCD517 /* 16_BGM_spurt4_512ms.wav in Resources */,
+				D8F1AD1F24E2CDDA00F0D9F0 /* 0002_soundTest.png in Resources */,
 				D8F1AD1B24E2B3EE00F0D9F0 /* Wave01.png in Resources */,
 				D8B7EBA124E1A20F00DCD517 /* 16_BGM_spurt1_352ms.wav in Resources */,
 				D8F1AD1D24E2B45E00F0D9F0 /* README.md in Resources */,
