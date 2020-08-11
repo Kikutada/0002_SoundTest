@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  GameScene.swift
 //  0002_SoundTest
 //
 //  Created by Kikutada on 2020/08/11.

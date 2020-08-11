@@ -22,7 +22,7 @@ When you run the program, the following screen will be displayed and BGM played.
 
 When you touch screen, "16_pacman_eatdot_256ms.wav" sound is played back.
 
-<img src="https://github.com/Kikutada/0001_SpritekitTest/blob/master/imgaes/0001_spritekitTest.png?raw=true" width=288>
+<img src="https://github.com/Kikutada/0002_SoundTest/blob/master/images/0002_soundTest.png?raw=true" width=288>
 
 # Usages
 

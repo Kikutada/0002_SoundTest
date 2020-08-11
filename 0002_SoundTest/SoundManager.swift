@@ -1,6 +1,6 @@
 //
-//  Soundmanagher.swift
-//  0002_SoundTest
+//  SoundManager.swift
+//  Sound Manager Class for SpriteKit
 //
 //  Created by Kikutada on 2020/08/11.
 //  Copyright © 2020 Kikutada. All rights reserved.

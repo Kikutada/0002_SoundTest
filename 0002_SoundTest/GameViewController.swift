@@ -1,6 +1,6 @@
 //
 //  GameViewController.swift
-//  0001_SpritekitTest
+//  0002_SoundTest
 //
 //  Created by Kikutada on 2020/08/11.
 //  Copyright © 2020 Kikutada All rights reserved.
