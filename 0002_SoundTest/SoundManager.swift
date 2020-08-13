@@ -88,10 +88,8 @@ class CgSoundManager {
     /// Update sound manager.
     /// - Parameter interval: Interval time to update.
     func update(interval: Int) {
-        guard bgmEnabled else { return }
-
         // Update time to play back BGM.
-        if  bgmTime > 0 {
+        if  bgmEnabled && bgmTime > 0 {
             bgmTime -= interval
             if bgmTime <= 0 {
                 let table = table_urls[bgmNumber]
