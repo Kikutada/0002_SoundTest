@@ -12,7 +12,7 @@ import SpriteKit
 /// Sound management class plays sound with SpriteKit.
 class CgSoundManager {
 
-    // Kind of sound items to play back.
+    /// Kind of sound items to play back.
     enum EnKindOfSound: Int {
         case EatDot = 0
         case EatFruit
@@ -31,7 +31,7 @@ class CgSoundManager {
         case Intermission
     }
 
-    // List of sound files to load.
+    /// List of sound files to load.
     private let table_urls: [[(resourceName: String, typeName: String, interval: Int)]] = [
         [ ("16_pacman_eatdot_256ms", "wav", 256) ],
         [ ("16_pacman_eatfruit_438ms", "wav", 438) ],
@@ -55,16 +55,16 @@ class CgSoundManager {
     private var table_playingTime: [Int] = []
     private var soundEnabled = true
     
-    // Adjustment time for processing to play sound.
+    /// Adjustment time for processing to play sound.
     private let triggerThresholdTime: Int = 16 //ms
 
     private var bgmEnabled: Bool = false
     private var bgmNumber: Int = -1
     private var bgmTime: Int = 0
     
-    /// Create and initialize a sound manager object.
+    /// Create and initialize a sound manager object
     /// - Parameters:
-    ///   - view: SKScene object that organizes all of the active SpriteKit content.
+    ///   - view: SKScene object that organizes all of the active SpriteKit content
     init(view: SKScene) {
         self.view = view
         table_playingTime = Array<Int>(repeating: 0, count: table_urls.count)
@@ -75,18 +75,18 @@ class CgSoundManager {
         reset()
     }
     
-    /// Append sound resources to SpriteKit.
+    /// Append sound resources to SpriteKit
     /// - Parameters:
-    ///   - resourceName: File name for sound resource.
-    ///   - typeName: Type name for sound resource.
+    ///   - resourceName: File name for sound resource
+    ///   - typeName: Type name for sound resource
     private func appendSoundResource(resourceName: String, typeName: String) {
         let fileName = resourceName+"."+typeName
         let sound: SKAction = SKAction.playSoundFileNamed(fileName, waitForCompletion: false)
         actions.append(sound)
     }
     
-    /// Update sound manager.
-    /// - Parameter interval: Interval time to update.
+    /// Update sound manager
+    /// - Parameter interval: Interval time to update
     func update(interval: Int) {
         // Update time to play back BGM.
         if  bgmEnabled && bgmTime > 0 {
@@ -106,7 +106,7 @@ class CgSoundManager {
         }
     }
     
-    /// Reset sound manager.
+    /// Reset sound manager
     func reset() {
         soundEnabled = true
         bgmEnabled = false
@@ -118,15 +118,15 @@ class CgSoundManager {
         }
     }
 
-    /// Enable or disable to output sound.
-    /// - Parameter enabled: True enables to output sound.  False disables.
+    /// Enable or disable to output sound
+    /// - Parameter enabled: True enables to output sound.  False disables
     func enableOutput(_ enabled: Bool) {
         soundEnabled = enabled
     }
 
-    /// Play back a specified sound.
-    /// If the specified item is playing back, it will not be played back.
-    /// - Parameter number: Kind of sound items to play back.
+    /// Play back a specified sound
+    /// If the specified item is playing back, it will not be played back
+    /// - Parameter number: Kind of sound items to play back
     func playSE(_ number: EnKindOfSound) {
         guard soundEnabled && number.rawValue < actions.count else { return }
 
@@ -138,18 +138,18 @@ class CgSoundManager {
         }
     }
     
-    /// Stop the specified sound.
-    /// - Parameter number: Kind of sound items to play back.
+    /// Stop the specified sound
+    /// - Parameter number: Kind of sound items to play back
     func stopSE(_ number: EnKindOfSound) {
         guard number.rawValue < actions.count else { return }
 
         table_playingTime[number.rawValue] = 0
     }
 
-    /// Play back BGM.
+    /// Play back BGM
     /// This method plays a specified sound item repeatedly.
     /// If the specified item is playing back, it will not be played back.
-    /// - Parameter number: Kind of sound items to play back.
+    /// - Parameter number: Kind of sound items to play back
     func playBGM(_ number: EnKindOfSound) {
         guard soundEnabled && number.rawValue < actions.count else { return }
         guard !bgmEnabled || number.rawValue != bgmNumber else { return }
@@ -163,11 +163,10 @@ class CgSoundManager {
         }
     }
     
-    /// Stop BGM.
+    /// Stop BGM
     func stopBGM() {
         bgmEnabled = false
         bgmTime = 0
     }
     
 }
-

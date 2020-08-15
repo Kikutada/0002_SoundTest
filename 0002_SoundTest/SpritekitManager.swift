@@ -26,12 +26,12 @@ class CgAssetManager {
     var numberOfRows = 0
     var numberOfTextures = 0
 
-    /// Create and initialize an asset object containing the textures from a specified image file.
+    /// Create and initialize an asset object containing the textures from a specified image file
     /// - Parameters:
-    ///   - view: SKScene object that organizes all of the active SpriteKit content.
-    ///   - imageNamed: An image file to Initialize textures using.
-    ///   - width: The size of the width of the texture that cuts out the image file.
-    ///   - height: The size of height of the texture that cuts out the image file.
+    ///   - view: SKScene object that organizes all of the active SpriteKit content
+    ///   - imageNamed: An image file to Initialize textures using
+    ///   - width: The size of the width of the texture that cuts out the image file
+    ///   - height: The size of height of the texture that cuts out the image file
     ///
     init(view: SKScene, imageNamed: String, width: Int, height: Int) {
 
@@ -69,11 +69,11 @@ class CgSpriteManager: CgAssetManager {
     
     /// Create and initialize a sprite management object containing the textures from a specified image file.
     /// - Parameters:
-    ///   - view: SKScene object that organizes all of the active SpriteKit content.
-    ///   - imageNamed: An image file to Initialize textures using.
-    ///   - width: The size of the width of the texture that cuts out the image file.
-    ///   - height: The size of height of the texture that cuts out the image file.
-    ///   - maxNumber: Maximum number of sprites to draw.
+    ///   - view: SKScene object that organizes all of the active SpriteKit content
+    ///   - imageNamed: An image file to Initialize textures using
+    ///   - width: The size of the width of the texture that cuts out the image file
+    ///   - height: The size of height of the texture that cuts out the image file
+    ///   - maxNumber: Maximum number of sprites to draw
     init(view: SKScene, imageNamed: String, width: Int, height: Int, maxNumber: Int) {
         super.init(view: view, imageNamed: imageNamed, width: width, height: height)
 
@@ -85,10 +85,10 @@ class CgSpriteManager: CgAssetManager {
         }
     }
     
-    /// Draw a sprite with a texture.
+    /// Draw a sprite with a texture
     /// - Parameters:
     ///   - number: Sprite control number between 0 to (maxNumber-1)
-    ///   - texture: Texture number to set a sprite.
+    ///   - texture: Texture number to set a sprite
     func draw(_ number: Int, texture: Int) {
         guard (number < maxNumberOfSprites && number >= 0) else { return }
         if let obj = sprites[number] {
@@ -101,19 +101,19 @@ class CgSpriteManager: CgAssetManager {
         }
     }
 
-    /// Draw a sprite with a texture at the specified position.
+    /// Draw a sprite with a texture at the specified position
     /// - Parameters:
     ///   - number: Sprite control number between 0 to (maxNumber-1)
-    ///   - x: X coordinate for position.
-    ///   - y: Y coordinate for position.
-    ///   - texture: Texture number to set a sprite.
+    ///   - x: X coordinate for position
+    ///   - y: Y coordinate for position
+    ///   - texture: Texture number to set a sprite
     func draw(_ number: Int, x: CGFloat, y: CGFloat, texture: Int) {
         draw(number, texture: texture)
         setPosition(number, x: x, y: y)
     }
 
-    /// Clear a drawing sprite.
-    /// - Parameter number: Sprite control number between 0 to (maxNumber-1).
+    /// Clear a drawing sprite
+    /// - Parameter number: Sprite control number between 0 to (maxNumber-1)
     func clear(_ number: Int) {
         guard (number < maxNumberOfSprites && number >= 0) else { return }
         if drawingState[number] {
@@ -125,26 +125,26 @@ class CgSpriteManager: CgAssetManager {
     }
     
     /// Hide a sprite. However, It still exists in the scene and continue to interact in other ways.
-    /// - Parameter number: Sprite control number between 0 to (maxNumber-1).
+    /// - Parameter number: Sprite control number between 0 to (maxNumber-1)
     func hide(_ number: Int) {
         if let obj:SKSpriteNode = sprites[number] {
             obj.isHidden = true
         }
     }
 
-    /// Show a hidden sprite.
-    /// - Parameter number: Sprite control number between 0 to (maxNumber-1).
+    /// Show a hidden sprite
+    /// - Parameter number: Sprite control number between 0 to (maxNumber-1)
     func show(_ number: Int) {
         if let obj:SKSpriteNode = sprites[number] {
             obj.isHidden = false
         }
     }
     
-    /// Set the position (x,y) of the specific sprite number .
+    /// Set the position (x,y) of the specific sprite number
     /// - Parameters:
-    ///   - number: Sprite control number between 0 to (maxNumber-1).
-    ///   - x: X coordinate for position.
-    ///   - y: Y coordinate for position.
+    ///   - number: Sprite control number between 0 to (maxNumber-1)
+    ///   - x: X coordinate for position
+    ///   - y: Y coordinate for position
     func setPosition(_ number: Int, x: CGFloat, y: CGFloat) {
         guard (number < maxNumberOfSprites && number >= 0) else { return }
         if let obj = sprites[number] {
@@ -153,10 +153,10 @@ class CgSpriteManager: CgAssetManager {
         }
     }
     
-    /// Set the depth (z) of the specific sprite number .
+    /// Set the depth (z) of the specific sprite number
     /// - Parameters:
-    ///   - number: Sprite control number between 0 to (maxNumber-1).
-    ///   - zPosition: Depth value. The bigger the value, the closer.
+    ///   - number: Sprite control number between 0 to (maxNumber-1)
+    ///   - zPosition: Depth value. The bigger the value, the closer
     func setDepth(_ number: Int, zPosition: CGFloat) {
         guard (number < maxNumberOfSprites && number >= 0) else { return }
         if let obj = sprites[number] {
@@ -164,10 +164,10 @@ class CgSpriteManager: CgAssetManager {
         }
     }
 
-    /// Set a texture to a sprite.
+    /// Set a texture to a sprite
     /// - Parameters:
-    ///   - number: Sprite control number between 0 to (maxNumber-1).
-    ///   - texture: Texture number to set a sprite.
+    ///   - number: Sprite control number between 0 to (maxNumber-1)
+    ///   - texture: Texture number to set a sprite
     func setTexture(_ number: Int, texture: Int) {
         guard (number < maxNumberOfSprites && number >= 0 ) && (texture < numberOfTextures && texture >= 0) else { return }
         if let obj = sprites[number] {
@@ -175,12 +175,12 @@ class CgSpriteManager: CgAssetManager {
         }
     }
     
-    /// Start animation by textures.
+    /// Start animation by textures
     /// - Parameters:
-    ///   - number: Sprite control number between 0 to (maxNumber-1).
-    ///   - sequence: Sequence of textures for animation as an array.
-    ///   - timePerFrame: Update rate in sec.
-    ///   - forever: True to repeat forever. False to repeat one time.
+    ///   - number: Sprite control number between 0 to (maxNumber-1)
+    ///   - sequence: Sequence of textures for animation as an array
+    ///   - timePerFrame: Update rate in sec
+    ///   - forever: True to repeat forever. False to repeat one time
     func startAnimation(_ number: Int, sequence: [Int], timePerFrame: Double,  repeat forever: Bool) {
         guard (number < maxNumberOfSprites && number >= 0) else { return }
         var textures:[SKTexture] = []
@@ -212,8 +212,8 @@ class CgSpriteManager: CgAssetManager {
         }
     }
     
-    /// Stop an animated sprite.
-    /// - Parameter number: Sprite control number between 0 to (maxNumber-1).
+    /// Stop an animated sprite
+    /// - Parameter number: Sprite control number between 0 to (maxNumber-1)
     func stopAnimation(_ number: Int) {
         guard (number < maxNumberOfSprites && number >= 0) else { return }
         if let obj = sprites[number] {
@@ -221,11 +221,11 @@ class CgSpriteManager: CgAssetManager {
         }
     }
 
-    /// Set a sprite coordinate axes.
+    /// Set a sprite coordinate axes
     /// - Parameters:
-    ///   - number: Sprite control number between 0 to (maxNumber-1).
-    ///   - xOrigin: X axis position.
-    ///   - yOrigin: Y axis position.
+    ///   - number: Sprite control number between 0 to (maxNumber-1)
+    ///   - xOrigin: X axis position
+    ///   - yOrigin: Y axis position
     ///  The default value is (0.5,0.5), which means that the sprite is centered on its position.
     ///  e.g.)  (xScale, yScale)  sets to (0.0,0.0), which means that its axes sets to lower left.
     ///      (xScale, yScale)  sets to (1.0,1.0), which means that its axes sets to upper right.
@@ -236,10 +236,10 @@ class CgSpriteManager: CgAssetManager {
         }
     }
     
-    /// Rotate a sprite.
+    /// Rotate a sprite
     /// - Parameters:
-    ///   - number: Sprite control number between 0 to (maxNumber-1).
-    ///   - radian: Set the rotation angle in radians.
+    ///   - number: Sprite control number between 0 to (maxNumber-1)
+    ///   - radian: Set the rotation angle in radians
     ///   e.g.) radins = CGFloat(10.0 * .pi / 180.0)
     func setRotation(_ number: Int, radians: CGFloat) {
         guard (number < maxNumberOfSprites && number >= 0) else { return }
@@ -248,11 +248,11 @@ class CgSpriteManager: CgAssetManager {
         }
     }
     
-    /// Scale and flip a sprite.
+    /// Scale and flip a sprite
     /// - Parameters:
-    ///   - number: Sprite control number between 0 to (maxNumber-1).
-    ///   - xScale: A scaling factor that multiplies the width of  a sprite.
-    ///   - yScale: A scaling factor that multiplies the height of a sprite.
+    ///   - number: Sprite control number between 0 to (maxNumber-1)
+    ///   - xScale: A scaling factor that multiplies the width of  a sprite
+    ///   - yScale: A scaling factor that multiplies the height of a sprite
     ///   e.g.)  (xScale, yScale) sets to (0.5, 1.0) , which means that  a sprite is scaled of 50% size in X direction.
     ///       (xScale, yScale) sets to (1.0, -1.0), which means that a sprite is flipped in Y direction.
     func setScale(_ number: Int, xScale: CGFloat, yScale: CGFloat) {
@@ -296,17 +296,17 @@ class CgBackgroundManager : CgAssetManager {
         }
     }
     
-    /// To set animated textures, extendTextures function is overriden by subclass of CgBackground.
-    /// - Returns: Number of added textures by calling extendAnimationTexture function.
+    /// To set animated textures, extendTextures function is overriden by subclass of CgBackground
+    /// - Returns: Number of added textures by calling extendAnimationTexture function
     func extendTextures() -> Int {
         // vitrual function.
         return 0
     }
     
-    /// Add the animated textures. Their texture numbers are assigned in addition to a image.
+    /// Add the animated textures. Their texture numbers are assigned in addition to a image
     /// - Parameters:
-    ///   - sequence: Sequence of texture numbers for animations as an array.
-    ///   - timePerFrame: Update rate in sec.
+    ///   - sequence: Sequence of texture numbers for animations as an array
+    ///   - timePerFrame: Update rate in sec
     func extendAnimationTexture(sequence: [Int], timePerFrame: CGFloat) {
         var textures:[SKTexture] = []
 
@@ -321,13 +321,13 @@ class CgBackgroundManager : CgAssetManager {
         tileGroups.append(tileGroup)
     }
     
-    /// Draw a background with textures at the specified position.
+    /// Draw a background with textures at the specified position
     /// - Parameters:
     ///   - number: Background control number between 0 to (maxNumber-1)
-    ///   - x: X coordinate for position.
-    ///   - y: Y coordinate for position.
-    ///   - columnsInWidth: Number of columns in width.
-    ///   - rowsInHeight: Number of rows in height.
+    ///   - x: X coordinate for position
+    ///   - y: Y coordinate for position
+    ///   - columnsInWidth: Number of columns in width
+    ///   - rowsInHeight: Number of rows in height
     func draw(_ number: Int, x: CGFloat, y: CGFloat, columnsInWidth: Int, rowsInHeight: Int) {
         guard (number < maxNumberOfBackgrounds && number >= 0) else { return }
         if let obj = bgNodes[number] {
@@ -342,8 +342,8 @@ class CgBackgroundManager : CgAssetManager {
         }
     }
     
-    /// Clear a drawing background.
-    ///   - number: Background control number between 0 to (maxNumber-1).
+    /// Clear a drawing background
+    ///   - number: Background control number between 0 to (maxNumber-1)
     func clear(_ number: Int) {
         guard (number < maxNumberOfBackgrounds && number >= 0) else { return }
         if drawingState[number] {
@@ -354,11 +354,11 @@ class CgBackgroundManager : CgAssetManager {
         }
     }
     
-    /// Set the position (x,y) of the specific background number .
+    /// Set the position (x,y) of the specific background number
     /// - Parameters:
-    ///   - number: Background control number between 0 to (maxNumber-1).
-    ///   - x: X coordinate for position.
-    ///   - y: Y coordinate for position.
+    ///   - number: Background control number between 0 to (maxNumber-1)
+    ///   - x: X coordinate for position
+    ///   - y: Y coordinate for position
     func setPosition(_ number: Int, x: CGFloat, y: CGFloat) {
         guard (number < maxNumberOfBackgrounds && number >= 0) else { return }
         if let obj = bgNodes[number] {
@@ -367,10 +367,10 @@ class CgBackgroundManager : CgAssetManager {
         }
     }
 
-    /// Sets the depth (z) of the specific background number .
+    /// Sets the depth (z) of the specific background number
     /// - Parameters:
-    ///   - number: Background control number between 0 to (maxNumber-1).
-    ///   - zPosition: Depth value. The bigger the value, the closer.
+    ///   - number: Background control number between 0 to (maxNumber-1)
+    ///   - zPosition: Depth value. The bigger the value, the closer
     func setDepth(_ number: Int, zPosition: CGFloat) {
         guard (number < maxNumberOfBackgrounds && number >= 0) else { return }
         if let obj = bgNodes[number] {
@@ -378,10 +378,10 @@ class CgBackgroundManager : CgAssetManager {
         }
     }
     
-    /// Fill a background by a specified texture.
+    /// Fill a background by a specified texture
     /// - Parameters:
-    ///   - number: Background control number between 0 to (maxNumber-1).
-    ///   - texture: Texture number to fill a background.
+    ///   - number: Background control number between 0 to (maxNumber-1)
+    ///   - texture: Texture number to fill a background
     func fill(_ number: Int, texture: Int) {
         guard (number < maxNumberOfBackgrounds && number >= 0 ) && (texture < numberOfTextures && texture >= 0) else { return }
         if let obj = bgNodes[number] {
@@ -389,12 +389,12 @@ class CgBackgroundManager : CgAssetManager {
         }
     }
     
-    /// Put a texture on a background at the specified position.
+    /// Put a texture on a background at the specified position
     /// - Parameters:
-    ///   - number: Background control number between 0 to (maxNumber-1).
-    ///   - column: Column coordinate for position.
-    ///   - row: Row coordinate for position.
-    ///   - texture: Texture number to put on a background.
+    ///   - number: Background control number between 0 to (maxNumber-1)
+    ///   - column: Column coordinate for position
+    ///   - row: Row coordinate for position
+    ///   - texture: Texture number to put on a background
     func put(_ number: Int, column: Int, row: Int, texture: Int) {
         guard (number < maxNumberOfBackgrounds && number >= 0 ) && (texture < numberOfTextures && texture >= 0) else { return }
         if let obj = bgNodes[number] {
@@ -402,15 +402,15 @@ class CgBackgroundManager : CgAssetManager {
         }
     }
     
-    /// Put multiple textures on a background at the specified position.
+    /// Put multiple textures on a background at the specified position
     /// - Parameters:
-    ///   - number: Background control number between 0 to (maxNumber-1).
-    ///   - column: Column coordinate for position.
-    ///   - row: Row coordinate for position.
-    ///   - columnsInWidth: Number of columns in width.
-    ///   - rowsInHeight: Number of rows in height.
-    ///   - textures: Texture numbers to put on a background.
-    ///   - offset: Offset to add to texture number.
+    ///   - number: Background control number between 0 to (maxNumber-1)
+    ///   - column: Column coordinate for position
+    ///   - row: Row coordinate for position
+    ///   - columnsInWidth: Number of columns in width
+    ///   - rowsInHeight: Number of rows in height
+    ///   - textures: Texture numbers to put on a background
+    ///   - offset: Offset to add to texture number
     func put(_ number: Int, column: Int, row: Int, columnsInwidth: Int, rowsInHeight: Int, textures: [Int], offset: Int = 0) {
         guard (number < maxNumberOfBackgrounds && number >= 0) else { return }
         var h = 0
@@ -427,13 +427,13 @@ class CgBackgroundManager : CgAssetManager {
         }
     }
     
-    /// Put string of textures on a background at the specified position.
+    /// Put string of textures on a background at the specified position
     /// - Parameters:
-    ///   - number: Background control number between 0 to (maxNumber-1).
-    ///   - column: Column coordinate for position.
-    ///   - row: Row coordinate for position.
-    ///   - string: String corresponded to texture numbers.
-    ///   - offset: Offset to add to texture number.
+    ///   - number: Background control number between 0 to (maxNumber-1)
+    ///   - column: Column coordinate for position
+    ///   - row: Row coordinate for position
+    ///   - string: String corresponded to texture numbers
+    ///   - offset: Offset to add to texture number
     func putString(_ number: Int, column: Int, row: Int, string: String, offset: Int = 0) {
         guard (number < maxNumberOfBackgrounds && number >= 0) else { return }
         var i = column
