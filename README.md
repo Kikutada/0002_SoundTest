@@ -24,7 +24,7 @@ When you touch screen, "16_pacman_eatdot_256ms.wav" sound is played back.
 
 <img src="https://github.com/Kikutada/0002_SoundTest/blob/master/images/0002_soundTest.png?raw=true" width=288>
 
-# Usages
+# Usage
 
 To play back sound, create CgSpriteManager class and call the APIs.
 
